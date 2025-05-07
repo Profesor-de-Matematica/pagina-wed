@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+<<<<<<< HEAD
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
+=======
+    "preview": "vite preview"
+>>>>>>> 87510dbfc7cc89f3cd75568cd1748c99c04db896
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -17,9 +21,16 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
+<<<<<<< HEAD
     "gh-pages": "^6.3.0",
+=======
+>>>>>>> 87510dbfc7cc89f3cd75568cd1748c99c04db896
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.2",
     "vite": "^4.4.9"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 87510dbfc7cc89f3cd75568cd1748c99c04db896
