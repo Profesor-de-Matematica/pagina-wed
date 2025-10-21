@@ -1,23 +1,30 @@
-// src/App.jsx
 import { useState } from "react";
+import logo from "./assets/images/logo.png";
 
 const productos = [
-  { id: 1, nombre: "Clase particular", descripcion: "1 Hora de clase personalizada", imagen: "./productos/1.jpg", precio: 10000 },
-  { id: 2, nombre: "Resolución de Trabajo Practico", descripcion: "Resolución de Trabajo Practico", imagen: "./productos/2.jpg", precio: 1234 },
-  { id: 3, nombre: "Resolución de Evaluación", descripcion: "Resolución del Evaluación", imagen: "./productos/3.jpg", precio: 15000 },
-  { id: 4, nombre: "Dudas y Preguntas", descripcion: "Descripción del producto 4", imagen: "./productos/4.jpg", precio: 999 },
-  { id: 5, nombre: "Actividades para Practicar", descripcion: "Descripción del producto 5", imagen: "./productos/5.jpg", precio: 1100 },
-  { id: 6, nombre: "Promo 1", descripcion: "1 Hora de clase + Dudas y preguntas", imagen: "./productos/6.jpg", precio: 1325 },
-  { id: 7, nombre: "Promo 2", descripcion: "1 Hora de clase + Actividades para practicar", imagen: "./productos/7.jpg", precio: 1475 },
-  { id: 8, nombre: "Promo 3", descripcion: "Reservá 3 clases y conseguí un 15% de descuento en la tercera", imagen: "./productos/8.jpg", precio: 1699 },
-  { id: 9, nombre: "Promo 4", descripcion: "1 Hora de clase + Dudas y preguntas + Actividades para practicar", imagen: "./productos/9.jpg", precio: 850 },
-  { id: 10, nombre: "Promo 5", descripcion: "1 Hora de clase + Modelo de examen", imagen: "./productos/10.jpg", precio: 1780 },
-  { id: 11, nombre: "Promo 6", descripcion: "1 Hora de clase + Modelo de examen + Dudas y preguntas", imagen: "./productos/11.jpg", precio: 1999 },
-  { id: 12, nombre: "Promo 7", descripcion: "1 Hora de clase + Modelo de examen + Dudas y preguntas + Actividades para practicar", imagen: "./productos/12.jpg", precio: 699 },
-  { id: 13, nombre: "Clases grupales", descripcion: "1 Hora con dos estudiantes", imagen: "./productos/13.jpg", precio: 2000 },
-  { id: 14, nombre: "Clases grupales", descripcion: "1 Hora con tres estudiantes", imagen: "./productos/14.jpg", precio: 2150 },
-  { id: 15, nombre: "Clases grupales", descripcion: "1 Hora con cuatro estudiantes", imagen: "./productos/15.jpg", precio: 2275 },
-  { id: 16, nombre: "Clases grupales", descripcion: "1 Hora con cinco estudiantes", imagen: "./productos/16.jpg", precio: 1890 },
+  { id: 1, nombre: "Clase particular", descripcion: "Una clase individual de 1 hora, enfocada en los temas que necesites. Se puede grabar para que la tengas y la repases cuando quieras", precio: 13000 },
+  { id: 2, nombre: "Resolución de Trabajo Practico", descripcion: "El precio de realización de un trabajo práctico depende de la cantidad de actividades que tenga y del tiempo que se requiera para realizarlo.", precio: 1 },
+  { id: 3, nombre: "Resolución de Evaluación", descripcion: "El precio de realización de un examen depende de la cantidad de actividades que incluya y del tiempo disponible para hacerlo.", precio: 1 },
+  { id: 4, nombre: "Repaso Exprés", descripcion: "Una herramienta ideal para cuando no tenés tiempo de ir a clase pero igual querés aprobar. Incluye videos explicativos, actividades de repaso y ejercicios extra para practicar cuando puedas, a tu ritmo y desde cualquier lugar. ¡Todo lo necesario para no quedarte atrás!", precio: 1 },
+  { id: 5, nombre: "Promp IA personalizado de matemática", descripcion: "Un prompt es una instrucción diseñada para interactuar con la inteligencia artificial. Con este recurso exclusivo vas a poder utilizar ChatGPT para generar actividades para practicar matemática de manera ilimitada. ¿Qué vas a lograr con este prompt? Crear infinitas actividades de práctica, obtener soluciones paso a paso para cada ejercicio, adaptar las consignas a tu nivel y a los temas que necesites reforzar, estudiar de forma más dinámica y efectiva para tus exámenes.", precio: 1 },
+  { id: 6, nombre: "Dudas y Preguntas", descripcion: "Durante 2 semanas podrás enviar tus dudas y preguntas al docente por WhatsApp, y recibirás respuestas personalizadas para ayudarte con tus estudios.", precio: 5000 },
+  { id: 7, nombre: "Actividades para Practicar", descripcion: "Recibí actividades para practicar, enviadas por el docente, junto con sus soluciones para que puedas corregirte y aprender.", precio: 5500 },
+  { id: 8, nombre: "Modelo de examen", descripcion: "Un examen de práctica como el que te tomarían en clase, pero sin respuestas y sin desarrollo.", precio: 8000 },
+  { id: 9, nombre: "Modelo de examen con respuesta", descripcion: "Contiene ejercicios parecidos a los del examen con las respuestas finales.", precio: 8500 },
+  { id: 10, nombre: "Modelo de examen con respuesta y desarrollo", descripcion: "Contiene ejercicios respuestas finales y resolución paso a paso.", precio: 12500 },
+  { id: 11, nombre: "Promo 1", descripcion: "1 Hora de clase + Dudas y preguntas", precio: 16800 },
+  { id: 12, nombre: "Promo 2", descripcion: "1 Hora de clase + Actividades para practicar", precio: 17300 },
+  { id: 13, nombre: "Promo 3", descripcion: "Reservá 3 clases y conseguí un 15% de descuento en la tercera", precio: 36000 },
+  { id: 14, nombre: "Promo 4", descripcion: "1 Hora de clase + Dudas y preguntas + Actividades para practicar", precio: 22000 },
+  { id: 15, nombre: "Promo 5", descripcion: "1 Hora de clase + Modelo de examen", precio: 19600 },
+  { id: 16, nombre: "Promo 6", descripcion: "1 Hora de clase + Modelo de examen + Dudas y preguntas", precio: 24700 },
+  { id: 17, nombre: "Promo 7", descripcion: "1 Hora de clase + Modelo de examen + Dudas y preguntas + Actividades para practicar", precio: 29500 },
+  { id: 18, nombre: "Promo 8", descripcion: "Incluye 8 horas de clases individuales durante el mes, adaptadas a tus necesidades y ritmo. Podés usar las horas como mejor te convenga: una por semana, dos seguidas, etc.", precio: 88000 },
+  { id: 19, nombre: "Promo 9", descripcion: "Incluye 16 horas de clases individuales durante el mes, adaptadas a tus necesidades y ritmo. Podés usar las horas como mejor te convenga: una por semana, dos seguidas, etc.", precio: 160000 },
+  { id: 20, nombre: "Clases grupales", descripcion: "1 Hora con dos estudiantes", precio: 23400 },
+  { id: 21, nombre: "Clases grupales", descripcion: "1 Hora con tres estudiantes", precio: 33900 },
+  { id: 22, nombre: "Clases grupales", descripcion: "1 Hora con cuatro estudiantes", precio: 43700 },
+  { id: 23, nombre: "Clases grupales", descripcion: "1 Hora con cinco estudiantes", precio: 52000 },
 ];
 
 function App() {
@@ -45,16 +52,16 @@ function App() {
 
   return (
     <div className="min-h-screen bg-blue-100 relative">
-      {/* Header */}
-      <div className="flex justify-between items-center p-6 bg-blue-200 shadow-md">
-        <h1 className="text-3xl font-bold text-blue-900 text-center w-full">
+      {/* Header modificado */}
+      <header className="flex items-center justify-between px-4 py-3 bg-blue-200 shadow-md">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900">
           Tienda de Matemática
         </h1>
-        <img src="logo.png" alt="Logo" className="h-12 absolute right-6" />
-      </div>
+        <img src={logo} alt="Logo" className="w-10 sm:w-12 md:w-14 h-auto ml-4" />
+      </header>
 
       {/* Buscador */}
-      <div className="p-6">
+      <div className="p-6 pb-40">
         <input
           type="text"
           placeholder="Buscar productos..."
@@ -67,16 +74,11 @@ function App() {
           {productosFiltrados.map((producto) => (
             <div
               key={producto.id}
-              className="bg-white p-4 rounded shadow text-center"
+              className="bg-white p-4 rounded shadow text-center flex flex-col justify-between"
             >
               <h2 className="text-lg font-semibold mb-2">{producto.nombre}</h2>
-              <img
-                src={producto.imagen}
-                alt={producto.nombre}
-                className="w-full h-40 object-contain mb-3"
-              />
               <p className="text-gray-700 mb-2">{producto.descripcion}</p>
-              <p className="text-gray-700 mb-2">
+              <p className="text-gray-700 mb-4">
                 ${producto.precio.toLocaleString()}
               </p>
               <button
@@ -111,7 +113,7 @@ function App() {
           <>
             <p className="mt-3 font-bold">Total: ${total.toLocaleString()}</p>
             <a
-              href={`https://wa.me/549XXXXXXXXXX?text=Hola! Quiero comprar los siguientes productos:%0A${mensajeWhatsApp}%0ATotal: $${total.toLocaleString()}%0AAlias: tu.alias.mp`}
+              href={`https://wa.me/5491151803271?text=Hola! Quiero comprar los siguientes productos:%0A${mensajeWhatsApp}%0ATotal: $${total.toLocaleString()}%0AAlias: lucas.taborda`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block bg-green-500 text-white px-4 py-2 rounded"
